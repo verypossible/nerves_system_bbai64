@@ -1,0 +1,69 @@
+U-Boot SPL 2021.01-g3419da0b (Jan 13 2022 - 15:29:57 +0000)
+Model: Texas Instruments K3 J721E SoC
+Board: BBONEAI-64-B0- rev B0
+SYSFW ABI: 3.1 (firmware rev 0x0015 '21.5.0--v2021.05 (Terrific Llam')
+Trying to boot from MMC1
+init_env from device 17 not supported!
+Starting ATF on ARM64 core...
+
+NOTICE:  BL31: v2.5(release):e0d9fdb
+NOTICE:  BL31: Built : 20:08:51, Jan  7 2022
+
+U-Boot SPL 2021.01-g3419da0b (Jan 13 2022 - 15:29:57 +0000)
+Model: Texas Instruments K3 J721E SoC
+Board: BBONEAI-64-B0- rev B0
+SYSFW ABI: 3.1 (firmware rev 0x0015 '21.5.0--v2021.05 (Terrific Llam')
+ti_i2c_eeprom_am6_parse_record: Ignoring record id 17
+Trying to boot from MMC1
+
+
+U-Boot 2021.01-g3419da0b (Jan 13 2022 - 15:29:57 +0000)
+
+SoC:   J721E SR2.0
+Model: Texas Instruments K3 J721E SoC
+Board: BBONEAI-64-B0- rev B0
+DRAM:  4 GiB
+Flash: 0 Bytes
+MMC:   sdhci@4f80000: 0, sdhci@4fb0000: 1
+In:    serial@2800000
+Out:   serial@2800000
+Err:   serial@2800000
+ti_i2c_eeprom_am6_parse_record: Ignoring record id 17
+Net:   am65_cpsw_nuss_slave ethernet@46000000: K3 CPSW: nuss_ver: 0x6BA00101 cpsw_ver: 0x6BA80100 ale_ver: 0x00293904 Ports:1 mdio_freq:1000000
+eth0: ethernet@46000000
+Hit any key to stop autoboot:  0
+board_name=[BBONEAI-64-B0-] ...
+name_fdt=[k3-j721e-beagleboneai64.dtb] ...
+i2c_write: error waiting for data ACK (status=0x116)
+pca953x gpio@22: Error reading output register
+switch to partitions #0, OK
+mmc1 is current device
+Scanning mmc 1:1...
+libfdt fdt_check_header(): FDT_ERR_BADMAGIC
+Scanning disk sdhci@4f80000.blk...
+Scanning disk sdhci@4fb0000.blk...
+** Unrecognized filesystem type **
+** Unrecognized filesystem type **
+** Unrecognized filesystem type **
+Found 8 disks
+No EFI system partition
+BootOrder not defined
+EFI boot manager: Cannot load any image
+switch to partitions #0, OK
+mmc0(part 0) is current device
+Scanning mmc 0:1...
+Found /extlinux/extlinux.conf
+Retrieving file: /extlinux/extlinux.conf
+203 bytes read in 8 ms (24.4 KiB/s)
+1:	Linux eMMC
+Retrieving file: /initrd.img
+14943002 bytes read in 89 ms (160.1 MiB/s)
+Retrieving file: /Image
+32715264 bytes read in 186 ms (167.7 MiB/s)
+append: console=ttyS2,115200n8 earlycon=ns16550a,mmio32,0x02800000 root=/dev/mmcblk0p2 ro rootfstype=ext4 rootwait net.ifnames=0
+Retrieving file: /k3-j721e-beagleboneai64.dtb
+176972 bytes read in 8 ms (21.1 MiB/s)
+## Flattened Device Tree blob at 88000000
+   Booting using the fdt blob at 0x88000000
+   Loading Ramdisk to 8f1bf000, end 8ffff31a ... OK
+   Loading Device Tree to 000000008f190000, end 000000008f1be34b ... OK

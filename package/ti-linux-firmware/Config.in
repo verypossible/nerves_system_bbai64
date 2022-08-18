@@ -1,0 +1,4 @@
+config BR2_PACKAGE_TI_LINUX_FIRMWARE
+	bool "ti-linux-firmware"
+	help
+	  Linux firmware blobs for TI cores.

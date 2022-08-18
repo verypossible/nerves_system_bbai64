@@ -1,0 +1,24 @@
+config BR2_PACKAGE_BB_K3_IMAGE_GEN
+	bool "bb-k3-image-gen"
+	select BR2_PACKAGE_BB_K3_R5_LOADER
+	help
+	  Use TI's bb-k3-image-gen to build a separate bare metal
+	  boot binary from a separate spl. Currently supports
+	  version 08.01.00.006 as default.
+
+	  https://git.beagleboard.org/beagleboard/bb-k3-image-gen
+
+config BR2_PACKAGE_BB_K3_IMAGE_GEN_SOC
+	string "SOC type for image gen"
+	depends on BR2_PACKAGE_BB_K3_IMAGE_GEN
+	help
+	  The target SoC option for image gen.
+	  For example, "am64x" for AM64X boards.
+
+config BR2_PACKAGE_BB_K3_IMAGE_GEN_CONFIG
+	string "CONFIG type for image gen"
+	depends on BR2_PACKAGE_BB_K3_IMAGE_GEN
+	help
+	  The board config option for image gen.
+	  Usually "sk" or "evm".
+

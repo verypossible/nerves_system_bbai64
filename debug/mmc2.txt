@@ -1,0 +1,26 @@
+U-Boot SPL 2021.01 (Aug 10 2022 - 11:59:46 +0000)
+Model: Texas Instruments K3 J721E SoC
+EEPROM not available at 0x50, trying to read at 0x51
+Board: BBONEAI-64-B0- rev B0
+SYSFW ABI: 3.1 (firmware rev 0x0015 '21.9.1--v2021.09a (Terrific Lla')
+TLB table from ffffc000 to 00000000
+>>SPL: board_init_r()
+spl_init
+Trying to boot from MMC2
+spl: mmc boot mode: fs
+board_fit_image_post_process: processing image: addr=70000000, size=39848, os=arm-trusted-firmware
+board_fit_image_post_process: matched image for ID 0
+board_fit_image_post_process: processing image: addr=9e800000, size=407376, os=tee
+board_fit_image_post_process: matched image for ID 1
+spl_load_fit_image: Skip load 'dm': image size is 0!
+board_fit_image_post_process: processing image: addr=80080000, size=161480, os=U-Boot
+board_fit_image_post_process: matched image for ID 2
+board_fit_image_post_process: processing image: addr=ffffffff, size=10103, os=
+Unsupported OS image.. Jumping nevertheless..
+loaded - jumping to U-Boot...
+** Unrecognized filesystem type **
+Starting ATF on ARM64 core...
+
+Shutting down...
+NOTICE:  BL31: v2.5(release):
+NOTICE:  BL31: Built : 11:59:46, Aug 10 2022

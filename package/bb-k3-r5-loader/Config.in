@@ -1,0 +1,13 @@
+config BR2_PACKAGE_BB_K3_R5_LOADER
+	bool "bb-k3-r5-loader"
+	help
+	  Separate U-Boot build for R5 cores on TI's k3 boards.
+	  Usually used to build tiboot3.bin with bb-k3-image-gen.
+
+config BR2_PACKAGE_BB_K3_R5_LOADER_BOARD
+	string "Board to configure for"
+	depends on BR2_PACKAGE_BB_K3_R5_LOADER
+	help
+	  Specify the board to configure the bootloader for.
+	  This should be the name of a board under board/ti
+	  For example, "am64x_evm".
