@@ -1,3 +1,0 @@
-source "$BR2_EXTERNAL_PERIDIO_PATH/package/bb-k3-image-gen/Config.in"
-source "$BR2_EXTERNAL_PERIDIO_PATH/package/bb-k3-r5-loader/Config.in"
-source "$BR2_EXTERNAL_PERIDIO_PATH/package/ti-linux-firmware/Config.in"
