@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-BB_K3_R5_LOADER_VERSION = v2021.01-ti-08.01.00.006
+BB_K3_R5_LOADER_VERSION = c36a9ee00165ee4c9d0cb64477a58a82251431d3 # v2021.01-ti-08.01.00.006
 BB_K3_R5_LOADER_SITE = https://git.beagleboard.org/beagleboard/u-boot.git
 BB_K3_R5_LOADER_SITE_METHOD = git
 BB_K3_R5_LOADER_LICENSE = GPL-2.0+

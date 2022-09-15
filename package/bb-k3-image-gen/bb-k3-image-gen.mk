@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-BB_K3_IMAGE_GEN_VERSION = 08.01.00.006
+BB_K3_IMAGE_GEN_VERSION = 489c767a153ff26e9230746e04dd4b1ad0809901 # 08.01.00.006
 BB_K3_IMAGE_GEN_SITE = https://git.beagleboard.org/beagleboard/k3-image-gen.git
 BB_K3_IMAGE_GEN_SITE_METHOD = git
 BB_K3_IMAGE_GEN_LICENSE = BSD-3-Clause
