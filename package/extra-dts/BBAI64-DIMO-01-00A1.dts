@@ -188,17 +188,23 @@
   status = "okay";
 };
 
-/* main i2c-3 */
+/* main i2c-6 */
 &bone_i2c_1 {
   status = "okay";
 };
 
-/* main i2c-5 */
+/* main i2c-2 */
 &bone_i2c_2 {
   #address-cells = <1>;
   #size-cells = <0>;
 
   status = "okay";
+
+  bq24735@9 {
+    compatible = "ti,bq24735";
+    reg = <0x9>;
+    ti,ac-detect-gpios = <&gpio 72 0x1>;
+  };
 
   max98089: max98089@10 {
     status = "okay";
