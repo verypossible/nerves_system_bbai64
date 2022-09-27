@@ -141,11 +141,7 @@
 
 &mcu_uart0 {
   status = "disabled";
-}
-
-&mcu_uart0 {
-  status = "disabled";
-}
+};
 
 &main_spi7 {
 	pinctrl-names = "default";
