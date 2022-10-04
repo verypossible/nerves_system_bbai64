@@ -94,12 +94,6 @@
     power-domains = <&k3_pds 273 TI_SCI_PD_EXCLUSIVE>;
   };
 
-  clk_mcasp1_fixed: clk_mcasp1_fixed {
-    #clock-cells = <0>;
-    compatible = "fixed-clock";
-    clock-frequency = <24576000>;
-	};
-
   sound {
     compatible = "simple-audio-card";
     simple-audio-card,name = "MAX98089";
@@ -116,31 +110,12 @@
       clock-names = "mclk";
     };
   };
-};
 
-&main_uart0 {
-  pinctrl-names = "default";
-	pinctrl-0 = <&cape_uart0_pins_default>;
-
-  status = "okay";
-};
-
-&main_uart2 {
-  pinctrl-names = "default";
-	pinctrl-0 = <&cape_uart2_pins_default>;
-
-  status = "okay";
-};
-
-&main_uart4 {
-  pinctrl-names = "default";
-	pinctrl-0 = <&cape_uart4_pins_default>;
-
-  status = "okay";
-};
-
-&mcu_uart0 {
-  status = "disabled";
+  clk_mcasp1_fixed: clk_mcasp1_fixed {
+    #clock-cells = <0>;
+    compatible = "fixed-clock";
+    clock-frequency = <24576000>;
+	};
 };
 
 &main_spi7 {
@@ -162,6 +137,36 @@
 		reg = <0>;	/* CE0 */
 		spi-max-frequency = <24000000>;
 	};
+};
+
+&main_uart2 {
+  pinctrl-names = "default";
+	pinctrl-0 = <&cape_uart2_pins_default>;
+
+  status = "okay";
+};
+
+&main_uart4 {
+  pinctrl-names = "default";
+	pinctrl-0 = <&cape_uart4_pins_default>;
+
+  status = "okay";
+};
+
+&main_mcan5 {
+	status = "okay";
+};
+
+&main_mcan6 {
+	status = "okay";
+};
+
+&main_mcan7 {
+	status = "okay";
+};
+
+&main_mcan8 {
+	status = "okay";
 };
 
 &mcu_i2c0 {
@@ -199,7 +204,6 @@
   bq24735@9 {
     compatible = "ti,bq24735";
     reg = <0x9>;
-    ti,ac-detect-gpios = <&gpio 72 0x1>;
   };
 
   max98089: max98089@10 {
@@ -226,20 +230,4 @@
   >;
   tx-num-evt = <32>;
   rx-num-evt = <32>;
-};
-
-&main_mcan5 {
-	status = "okay";
-};
-
-&main_mcan6 {
-	status = "okay";
-};
-
-&main_mcan7 {
-	status = "okay";
-};
-
-&main_mcan8 {
-	status = "okay";
 };
