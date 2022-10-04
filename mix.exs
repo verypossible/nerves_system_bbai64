@@ -103,10 +103,13 @@ defmodule NervesSystemBBAI64.MixProject do
     [
       "fwup_include",
       "linux",
+      "package",
       "rootfs_overlay",
       "uboot",
       "busybox.fragment",
       "CHANGELOG.md",
+      "Config.in",
+      "external.mk",
       "fwup-revert.conf",
       "fwup.conf",
       "LICENSE",
