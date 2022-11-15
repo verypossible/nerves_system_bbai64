@@ -226,11 +226,15 @@
 
 /* main i2c-6 */
 &bone_i2c_1 {
+  clock-frequency = <100000>;
+  
   status = "okay";
 };
 
 /* main i2c-2 */
 &bone_i2c_2 {
+  clock-frequency = <100000>;
+  
   #address-cells = <1>;
   #size-cells = <0>;
 
@@ -239,16 +243,28 @@
   bq24735@9 {
     compatible = "ti,bq24735";
     reg = <0x9>;
+
+    status = "okay";
   };
 
   max98089: max98089@10 {
-    status = "okay";
-
     #sound-dai-cells = <0>;
     compatible = "max98089";
     reg = <0x10>;
     clocks = <&clk_mcasp1_fixed>;
     clock-names = "mclk";
+
+    status = "okay";
+  };
+
+  tca9534: gpio@20 {
+    compatible = "nxp,pca9534";
+    reg = <0x20>;
+    vcc-supply = <&vsys_3v3>;
+    gpio-controller;
+    #gpio-cells = <2>;
+
+    status = "okay";
   };
 };
 
