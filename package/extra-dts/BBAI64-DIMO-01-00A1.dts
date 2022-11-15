@@ -58,11 +58,40 @@
 			J721E_IOPAD(0xac, PIN_INPUT_PULLUP, 2) /* (AD18) PRG1_MDIO0_MDC.I2C4_SDA */
 		>;
 	};
+
+  mcan6_pins_default: mcan6_pins_default {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x44, PIN_INPUT, 6)	/* AE24: PRG1_PRU0_GPO16 AE24_MCAN6_RX */
+      J721E_IOPAD(0x40, PIN_OUTPUT, 6)	/* AC24: PRG1_PRU0_GPO15 AC24_MCAN6_TX */
+		>;
+	};
+
+  mcan7_pins_default: mcan7_pins_default {
+		pinctrl-single,pins = <
+      J721E_IOPAD(0x8C, PIN_INPUT, 6)	/* AG25: PRG1_PRU1_GPO13 AG25_MCAN7_RX */
+			J721E_IOPAD(0x88, PIN_OUTPUT, 6)	/* AH25: PRG1_PRU1_GPO12 AH25_MCAN7_TX */
+		>;
+	};
+  
+  mcan8_pins_default: mcan8_pins_default {
+		pinctrl-single,pins = <
+      J721E_IOPAD(0x80, PIN_INPUT, 6)	/* AB23: PRG1_PRU1_GPO10 AB23_MCAN8_RX */
+			J721E_IOPAD(0x7C, PIN_OUTPUT, 6)	/* AF21: PRG1_PRU1_GPO9 AF21_MCAN8_TX */
+		>;
+	};
+  
 };
 
 &cape_header {
 	pinctrl-names = "default";
 	pinctrl-0 = <
+    &P8_07_can_pin /* MCAN5 TX */
+    &P8_08_can_pin /* MCAN5 RX */
+    &P8_14_gpio_pin /* MCAN5 STB */
+    &P8_26_gpio_pin 
+    &P8_04_gpio_pin
+    &P8_18_gpio_pin
+
     &P9_28_spi_pin  	/* SPI7_CS0 */
     &P9_29_spi_pin		/* SPI7_D1 - SDI */
     &P9_30_spi_pin		/* SPI7_D0 - SDO */
@@ -154,18 +183,33 @@
 };
 
 &main_mcan5 {
+  pinctrl-names = "default";
+	pinctrl-0 = <
+		&P8_07_can_pin  	/* MCAN5 TX */
+    &P8_08_can_pin		/* MCAN5 RX */
+	>;
+
 	status = "okay";
 };
 
 &main_mcan6 {
+  pinctrl-names = "default";
+	pinctrl-0 = <&mcan6_pins_default>;
+
 	status = "okay";
 };
 
 &main_mcan7 {
+  pinctrl-names = "default";
+	pinctrl-0 = <&mcan7_pins_default>;
+
 	status = "okay";
 };
 
 &main_mcan8 {
+  pinctrl-names = "default";
+	pinctrl-0 = <&mcan8_pins_default>;
+
 	status = "okay";
 };
 
