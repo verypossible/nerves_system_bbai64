@@ -19,20 +19,6 @@
 };
 
 &main_pmx0 {
-  cape_uart0_pins_default: cape_uart0_pins_default {
-		pinctrl-single,pins = <
-			J721E_IOPAD(0x4, PIN_INPUT, 14) /* (AC23) PRG1_PRU0_GPO0.UART0_RXD */
-			J721E_IOPAD(0x8, PIN_OUTPUT, 14) /* (AG22) PRG1_PRU0_GPO1.UART0_TXD */
-		>;
-	};
-
-  cape_uart2_pins_default: cape_uart2_pins_default {
-		pinctrl-single,pins = <
-			J721E_IOPAD(0x14, PIN_INPUT, 14) /* (AH23) PRG1_PRU0_GPO4.UART2_RXD */
-			J721E_IOPAD(0x1c, PIN_OUTPUT, 14) /* (AD22) PRG1_PRU0_GPO6.UART2_TXD */
-		>;
-	};
-
 	cape_uart4_pins_default: cape_uart4_pins_default {
 		pinctrl-single,pins = <
 			J721E_IOPAD(0x100, PIN_INPUT, 8) /* (AE29) PRG0_PRU1_GPO0.UART4_CTSn */
@@ -100,8 +86,10 @@
     &P9_11_uart_pin   /* UART0 RXD */
     &P9_13_uart_pin   /* UART0 TXD */
 
-    &P9_40_uart_pin   /* UART2 RXD */
-    &P9_24_uart_pin   /* UART2 TXD */
+    &P8_22_uart_pin   /* UART2 RXD */
+    &P8_34_uart_pin   /* UART2 TXD */
+    &P9_40_gpio_pin
+    &P9_24_gpio_pin
 
     &P9_20_i2c_pin /* i2c2_sda */
 		&P9_19_i2c_pin /* i2c2_scl */
@@ -170,7 +158,10 @@
 
 &main_uart2 {
   pinctrl-names = "default";
-	pinctrl-0 = <&cape_uart2_pins_default>;
+	pinctrl-0 = <
+    &P8_22_uart_pin   /* UART2 RXD */
+    &P8_34_uart_pin   /* UART2 TXD */
+  >;
 
   status = "okay";
 };
