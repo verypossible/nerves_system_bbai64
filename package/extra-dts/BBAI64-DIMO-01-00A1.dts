@@ -98,6 +98,8 @@
 
     &P9_18_i2c_pin /* i2c6_sda */
 		&P9_17_i2c_pin /* i2c6_scl */
+
+    &P9_26_gpio_pin
   >;
 };
 
@@ -243,13 +245,13 @@
   };
 
   max98089: max98089@10 {
+    status = "okay";
+
     #sound-dai-cells = <0>;
-    compatible = "max98089";
+    compatible = "maxim,max98089";
     reg = <0x10>;
     clocks = <&clk_mcasp1_fixed>;
     clock-names = "mclk";
-
-    status = "okay";
   };
 
   tca9534: gpio@20 {
@@ -265,14 +267,19 @@
 
 &mcasp1 {
   #sound-dai-cells = <0>;
-  status = "okay";
 
   pinctrl-names = "default";
   pinctrl-0 = <&cape_mcasp1_pins_default>;
+  
+  status = "okay";
+  
   op-mode = <0>; /* MCASP_IIS_MODE */
   tdm-slots = <2>;
-  serial-dir = < /* 0: INACTIVE, 1: INACTIVE, 2: TX, 3: RX, INACTIVE */
-    0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0
+  
+
+  serial-dir = < /* 0: INACTIVE, 1: TX, 2: RX */
+    0 0 1 2
+    0 0 0 0
   >;
   tx-num-evt = <32>;
   rx-num-evt = <32>;
