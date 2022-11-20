@@ -12,6 +12,14 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v0.2.0
+
+* Updated Dependencies
+   * [nerves_system_br v1.21.3](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.21.2)
+* Updated features
+   * Added APlay support for MAX98088/9 codec
+   * Updated DIMO device tree overlay
+
 ## v0.1.0
 
 Initial Release
