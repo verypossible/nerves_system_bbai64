@@ -65,7 +65,14 @@
 			J721E_IOPAD(0x7C, PIN_OUTPUT, 6)	/* AF21: PRG1_PRU1_GPO9 AF21_MCAN8_TX */
 		>;
 	};
-  
+  spi7_pins_default: spi1_pins_default {
+		pinctrl-single,pins = <
+			J721E_IOPAD(0x234, PIN_INPUT, 6) /* (U3) EXT_REFCLK1.SPI7_CLK */
+			J721E_IOPAD(0x230, PIN_INPUT, 6) /* (U2) ECAP0_IN_APWM_OUT.SPI7_CS0 */
+			J721E_IOPAD(0x238, PIN_INPUT, 6) /* (V6) TIMER_IO0.SPI7_D0 */
+			J721E_IOPAD(0x23c, PIN_INPUT, 6) /* (V5) TIMER_IO1.SPI7_D1 */
+		>;
+	};
 };
 
 &cape_header {
@@ -77,11 +84,6 @@
     &P8_26_gpio_pin 
     &P8_04_gpio_pin
     &P8_18_gpio_pin
-
-    &P9_28_spi_pin  	/* SPI7_CS0 */
-    &P9_29_spi_pin		/* SPI7_D1 - SDI */
-    &P9_30_spi_pin		/* SPI7_D0 - SDO */
-    &P9_31_spi_pin		/* SPI7_CLK */
 
     &P9_11_uart_pin   /* UART0 RXD */
     &P9_13_uart_pin   /* UART0 TXD */
@@ -107,8 +109,8 @@
     #address-cells = <1>;
 		#size-cells = <0>;
     clock-names = "fck";
-    clocks = <&k3_clks 273 1>;
-    power-domains = <&k3_pds 273 TI_SCI_PD_EXCLUSIVE>;
+    clocks = <&k3_clks 191 1>;
+    power-domains = <&k3_pds 191 TI_SCI_PD_EXCLUSIVE>;
   };
 
   sound {
@@ -136,20 +138,13 @@
 };
 
 &main_spi7 {
-	pinctrl-names = "default";
-	pinctrl-0 = <
-		&P9_28_spi_pin  	/* SPI7_CS0 */
-    &P9_29_spi_pin		/* SPI7_D1 - SDI */
-    &P9_30_spi_pin		/* SPI7_D0 - SDO */
-    &P9_31_spi_pin		/* SPI7_CLK */
-	>;
 	ti,spi-num-cs = <1>;
-	ti,pindir-d0-out-d1-in;
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi7_pins_default>;
 
 	status = "okay";
 
 	spidev@0 {
-		symlink = "bone/spi/0.0";
 		compatible = "linux,spidev";
 		reg = <0>;	/* CE0 */
 		spi-max-frequency = <24000000>;
